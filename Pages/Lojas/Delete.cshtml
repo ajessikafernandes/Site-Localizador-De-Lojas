@@ -1,0 +1,75 @@
+@page
+@model LojasCRUD.Pages.Lojas.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2><strong>Deletar Loja | Administrador</strong></h2>
+
+<h3>Você confirma a exclusão dos dados abaixo ? </h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Loja.razaoSocial)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Loja.razaoSocial)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Loja.email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Loja.email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Loja.logradouro)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Loja.logradouro)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Loja.bairro)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Loja.bairro)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Loja.cidade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Loja.cidade)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Loja.cep)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Loja.cep)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Loja.uf)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Loja.uf)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Loja.Latitude)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Loja.Latitude)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Loja.Longitude)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Loja.Longitude)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Loja.Id" />
+        <input type="submit" value="Sim, Excluir Loja" class="btn btn-danger" />
+        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Voltar"><a asp-page="./Index">Não, voltar a Lista</a></button>
+    </form>
+</div>

@@ -1,0 +1,145 @@
+@page
+@model LojasCRUD.Pages.Lojas.IndexModel
+
+@{
+    ViewData["Title"] = "Encontre Uma Farmácia";
+}
+
+<div class="container">
+    <br />
+    <h1><strong>Encontre Uma Farmácia</strong></h1>
+    <br />
+    <h4><strong>Filtrar loja por endereço: </strong></h4>
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Selecione uma Cidade
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            @foreach (var cidade in Model.Loja) {
+            <li><a asp-page="./DadosLoja" asp-route-id="@cidade.Id">@Html.DisplayFor(modelCidade => cidade.cidade)</a></li>}
+        </ul>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Loja[0].razaoSocial)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Loja[0].logradouro)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Loja[0].bairro)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Loja[0].cidade)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Loja[0].cep)
+                    </th>
+                    <th>
+                            @Html.DisplayNameFor(model => model.Loja[0].uf)
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.Loja) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.razaoSocial)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.logradouro)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.bairro)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.cidade)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.cep)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.uf)
+                    </td>
+                    <td>
+                    <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Detalhes"><a asp-page="./DadosLoja" asp-route-id="@item.Id"><span class="glyphicon glyphicon-share"></span></a></button>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        <hr />
+        </div>
+
+        <h4><strong>Encontre nossas lojas no Mapa:</strong></h4>
+
+        <div id="googleMap" style="width:100%;height:400px;"></div>
+
+        <script>
+            //A inteção não era passar na mão,
+            function myMap(lat, long) {
+                
+            var lat = -19.882425;
+            var long = -44.742994;
+
+            var mapLocal = {
+                center: new google.maps.LatLng(lat, long),
+                zoom: 10,
+            };
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapLocal);
+
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(lat, long),
+                title: "Drogaria Santa Rita Filal - Praça N.S. Das Dores, 76 - Igaratinga - MG",
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                map: map
+            });
+            
+            var marker2 = new google.maps.Marker({
+                position: new google.maps.LatLng(-19.877149, -44.985042),
+                title: " Farmacia Sao Luiz - Rua Dimas Guimarães, 83 - Nova Serrana - MG",
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                map: map
+            });
+
+            var marker3 = new google.maps.Marker({
+                position: new google.maps.LatLng(-19.951660, -45.076575),
+                title: "Geraldo Magela Ribeiro - Avenida Dom Cristiano, 868 - Perdigão - MG",
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                map: map
+            });      
+
+            var marker4 = new google.maps.Marker({
+                position: new google.maps.LatLng(-19.952184, -44.708781),
+                title: "Drogaria Santa Rita - Rua 1º Março, 51 - Igaratinga - MG",
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                map: map
+            });
+
+
+            var marker5 = new google.maps.Marker({
+                position: new google.maps.LatLng(-19.985843, -44.856211),
+                title: "Drogaria + Vida	- Avenida Governador Magalhães Pinto, 207 - São Gonçalo Do Pará - MG",
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                map: map
+            });
+
+            }
+        </script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOvo5YxQOGAPIQo4uqV6GhVMc5XGqVlpo&callback=myMap"></script>
+
+    </div>
+</div>

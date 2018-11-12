@@ -1,0 +1,140 @@
+﻿@page
+@model LojasCRUD.Pages.Lojas.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+} 
+   
+<div class="container">
+    <h2><strong>@Html.DisplayFor(model => model.Loja.razaoSocial)</strong></h2>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Loja.razaoSocial)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Loja.razaoSocial)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Loja.email)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Loja.email)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Loja.logradouro)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Loja.logradouro)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Loja.bairro)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Loja.bairro)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Loja.cidade)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Loja.cidade)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Loja.cep)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Loja.cep)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Loja.uf)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Loja.uf)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Loja.Latitude)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Loja.Latitude)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Loja.Longitude)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Loja.Longitude)
+            </dd>
+        </dl>
+</div>
+
+<div>
+    <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Voltar"><a asp-page="./Map">Voltar a Lista</a></button>
+</div>
+
+<hr />
+
+<div id="googleMap" style="width:100%;height:400px;"></div>
+
+        <script>
+            //A inteção Não era passar na mão os dados, Sim por JSON
+            function myMap(lat, long) {
+                
+            var lat = -19.882425;
+            var long = -44.742994;
+
+            var mapLocal = {
+                center: new google.maps.LatLng(lat, long),
+                zoom: 10,
+            };
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapLocal);
+
+           
+
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(lat, long),
+                title: "Drogaria Santa Rita Filal - Praça N.S. Das Dores, 76 - Igaratinga - MG",
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                map: map
+            });
+            
+            var marker2 = new google.maps.Marker({
+                position: new google.maps.LatLng(-19.877149, -44.985042),
+                title: " Farmacia Sao Luiz - Rua Dimas Guimarães, 83 - Nova Serrana - MG",
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                map: map
+            });
+
+            var marker3 = new google.maps.Marker({
+                position: new google.maps.LatLng(-19.951660, -45.076575),
+                title: "Geraldo Magela Ribeiro - Avenida Dom Cristiano, 868 - Perdigão - MG",
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                map: map
+            });      
+
+            var marker4 = new google.maps.Marker({
+                position: new google.maps.LatLng(-19.952184, -44.708781),
+                title: "Drogaria Santa Rita - Rua 1º Março, 51 - Igaratinga - MG",
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                map: map
+            });
+
+
+            var marker5 = new google.maps.Marker({
+                position: new google.maps.LatLng(-19.985843, -44.856211),
+                title: "Drogaria + Vida	- Avenida Governador Magalhães Pinto, 207 - São Gonçalo Do Pará - MG",
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                map: map
+            });
+
+            }
+        </script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOvo5YxQOGAPIQo4uqV6GhVMc5XGqVlpo&callback=myMap"></script>
+
+
+

@@ -1,0 +1,76 @@
+@page
+@model LojasCRUD.Pages.Lojas.DetailsModel
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<div id="container">
+    <h2><strong>@Html.DisplayFor(model => model.Loja.razaoSocial)</strong></h2>
+
+    <div>
+        <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Loja.razaoSocial)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Loja.razaoSocial)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Loja.email)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Loja.email)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Loja.logradouro)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Loja.logradouro)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Loja.bairro)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Loja.bairro)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Loja.cidade)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Loja.cidade)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Loja.cep)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Loja.cep)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Loja.uf)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Loja.uf)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Loja.Latitude)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Loja.Latitude)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Loja.Longitude)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Loja.Longitude)
+                </dd>
+            </dl>
+        <hr />
+    </div>
+    <div>
+        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Index"><a asp-page="./Index"><span class="glyphicon glyphicon-arrow-left"></span> Voltar a Lista </a></button>
+        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Editar"><a asp-page="./Edit" asp-route-id="@Model.Loja.Id"><span class="glyphicon glyphicon-pencil"></span> Editar Loja </a></button>
+    </div>
+</div>
+

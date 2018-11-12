@@ -1,0 +1,106 @@
+@page
+@model LojasCRUD.Pages.Lojas.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <div id="containter">
+        <br />
+        <h2><strong>Lista de Lojas | Administrador </strong></h2>
+        <br />
+        </div>
+        
+        <div style="text-align: right;">
+            <button type="button" class="btn btn-default"><a asp-page="Create"><span class="glyphicon glyphicon-plus"></span> Adicionar Nova Loja </a></button>
+        </div>
+        <div class="dropdown">
+            <h4>Filtro por cidade:</h4>
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Selecione uma Cidade
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                @foreach (var cidade in Model.Loja) {
+                <li><a asp-page="./Detalhes" asp-route-id="@cidade.Id">@Html.DisplayFor(modelCidade => cidade.cidade)</a></li>}
+            </ul>               
+        </div>
+
+        <br /><hr />
+        <div class="row">
+            <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Loja[0].razaoSocial)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Loja[0].email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Loja[0].logradouro)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Loja[0].bairro)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Loja[0].cidade)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Loja[0].cep)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Loja[0].uf)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Loja[0].Latitude)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Loja[0].Longitude)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                 @foreach (var item in Model.Loja) {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.razaoSocial)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.logradouro)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.bairro)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.cidade)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.cep)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.uf)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Latitude)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Longitude)
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Editar"><a asp-page="./Edit" asp-route-id="@item.Id"><span class="glyphicon glyphicon-pencil"></span></a></button>
+                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Detalhes"><a asp-page="./Detalhes" asp-route-id="@item.Id"><span class="glyphicon glyphicon-list-alt"></span></a></button>
+                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Deletar"><a asp-page="./Delete" asp-route-id="@item.Id"><span class="glyphicon glyphicon-remove"></span></a></button>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>   
+        </div>
+    </div>
+</div>
